@@ -1,30 +1,62 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var pl = fmt.Println
 
-// var monthlyPrice float64
-
 func main() {
 
+	bill()
+
 	fmt.Println("GOGO")
-	_ = monthlyBillIncrease
-	_ = getBillForMonth
+	// _ = monthlyBillIncrease
+	// _ = getBillForMonth
+	printReports(
+		"Welcome to the Hotel California",
+		"Such a lovely place",
+		"Plenty of room at the Hotel California",
+	)
 }
 
-func monthlyBillIncrease(costPerSend, numLastMonth, numThisMonth int) int {
-	var lastMonthBill int = getBillForMonth(costPerSend, numLastMonth)
-	var thisMonthBill int = getBillForMonth(costPerSend, numThisMonth)
-	pl(thisMonthBill - lastMonthBill)
-	return thisMonthBill - lastMonthBill
+func printCostReport(costCalculator func(string) int, message string) {
+	cost := costCalculator(message)
+	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
+	fmt.Println()
 }
 
-func getBillForMonth(costPerSend, messagesSent int) int {
-	var bill int = costPerSend * messagesSent
+func printReports(intro, body, outro string) {
 
-	return bill
+	printCostReport(func(message string) int {
+		messageLen := len(message)
+		return messageLen * 2
+	}, intro)
+
+	printCostReport(func(message string) int {
+		messageLen := len(message)
+		return messageLen * 3
+	}, body)
+
+	printCostReport(func(message string) int {
+		messageLen := len(message)
+		return messageLen * 4
+	}, outro)
+
 }
+
+// func monthlyBillIncrease(costPerSend, numLastMonth, numThisMonth int) int {
+// 	var lastMonthBill int = getBillForMonth(costPerSend, numLastMonth)
+// 	var thisMonthBill int = getBillForMonth(costPerSend, numThisMonth)
+// 	pl(thisMonthBill - lastMonthBill)
+// 	return thisMonthBill - lastMonthBill
+// }
+
+// func getBillForMonth(costPerSend, messagesSent int) int {
+// 	var bill int = costPerSend * messagesSent
+
+// 	return bill
+// }
 
 // func getMonthlyPrice(tier string) int {
 // 	var monthlyPrice int

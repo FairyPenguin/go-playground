@@ -8,42 +8,42 @@ var pl = fmt.Println
 
 func main() {
 
-	bill()
+	// bill()
 
 	fmt.Println("GOGO")
 	// _ = monthlyBillIncrease
 	// _ = getBillForMonth
-	printReports(
-		"Welcome to the Hotel California",
-		"Such a lovely place",
-		"Plenty of room at the Hotel California",
-	)
+	// printReports(
+	// 	"Welcome to the Hotel California",
+	// 	"Such a lovely place",
+	// 	"Plenty of room at the Hotel California",
+	// )
 }
 
-func printCostReport(costCalculator func(string) int, message string) {
-	cost := costCalculator(message)
-	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
-	fmt.Println()
-}
+// func printCostReport(costCalculator func(string) int, message string) {
+// 	cost := costCalculator(message)
+// 	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
+// 	fmt.Println()
+// }
 
-func printReports(intro, body, outro string) {
+// func printReports(intro, body, outro string) {
 
-	printCostReport(func(message string) int {
-		messageLen := len(message)
-		return messageLen * 2
-	}, intro)
+// 	printCostReport(func(message string) int {
+// 		messageLen := len(message)
+// 		return messageLen * 2
+// 	}, intro)
 
-	printCostReport(func(message string) int {
-		messageLen := len(message)
-		return messageLen * 3
-	}, body)
+// 	printCostReport(func(message string) int {
+// 		messageLen := len(message)
+// 		return messageLen * 3
+// 	}, body)
 
-	printCostReport(func(message string) int {
-		messageLen := len(message)
-		return messageLen * 4
-	}, outro)
+// 	printCostReport(func(message string) int {
+// 		messageLen := len(message)
+// 		return messageLen * 4
+// 	}, outro)
 
-}
+// }
 
 // func monthlyBillIncrease(costPerSend, numLastMonth, numThisMonth int) int {
 // 	var lastMonthBill int = getBillForMonth(costPerSend, numLastMonth)
